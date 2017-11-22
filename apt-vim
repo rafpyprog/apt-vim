@@ -557,6 +557,7 @@ class aptvim(object):
                 if 'cd' in com:
                     os.chdir(shlex.split(com)[1])
                 else:
+                    print(com)
                     call(shlex.split(com))
             except:
                 user_response = report_fail(
