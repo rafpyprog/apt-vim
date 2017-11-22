@@ -1,5 +1,3 @@
-@echo off
-
 SET start_dir=%CD%
 
 
