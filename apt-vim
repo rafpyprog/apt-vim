@@ -534,7 +534,10 @@ class aptvim(object):
         print(command)
         try:
             with open(os.devnull, 'wb') as devnull:
-                exit_code = call(command, stdout=devnull)
+                if HOST_OS == 'windows':
+                    exit_code = call(command, stdout=devnull, shell=True)
+                else:
+                    exit_code = call(command, stdout=devnull)
                 if exit_code:
                     return False
         except CalledProcessError:
@@ -625,7 +628,7 @@ class aptvim(object):
         print(SCRIPT_EXE_PATH)
         print(HOST_OS)
         if platform.system().lower() == 'windows':
-            cmd = ['copy {} {}'.format(os.path.realpath(__file__), SCRIPT_EXE_PATH), shell=True]
+            cmd = ['copy {} {}'.format(os.path.realpath(__file__), SCRIPT_EXE_PATH)]
         else:
             cmd = ['cp', os.path.realpath(__file__), SCRIPT_EXE_PATH]
         if not self.call_silent(cmd):
