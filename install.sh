@@ -39,7 +39,7 @@ for rc in bashrc zshrc bash_profile; do
 done
 
 # Execute apt-vim init
-cd ${HOME}/apt-vim
+cd %HOME%/apt-vim
 python - <<EOF
 import imp, os
 print('apt-vim setup starting')

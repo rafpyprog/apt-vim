@@ -531,9 +531,11 @@ class aptvim(object):
         return True if match else False
 
     def call_silent(self, command):
+        print(command)
         try:
             with open(os.devnull, 'wb') as devnull:
-                exit_code = call(command, stdout=devnull)
+                #exit_code = call(command, stdout=devnull)
+                exit_code = os.system('copy C:\\Users\\05966258635\\apt-vim\\apt-vim C:\\Users\\05966258635\\.vimpkg\\bin\\apt-vim')
                 if exit_code:
                     return False
         except CalledProcessError:
@@ -621,8 +623,12 @@ class aptvim(object):
             os.makedirs(BIN_DIR)
         if not os.path.exists(SRC_DIR):
             os.makedirs(SRC_DIR)
-
-        if not self.call_silent(['cp', os.path.realpath(__file__), SCRIPT_EXE_PATH]):
+        print(SCRIPT_EXE_PATH)
+        if os.name == 'nt':
+            cmd = 'copy'
+        else:
+            cmd = 'cp'
+        if not self.call_silent([cmd, os.path.realpath(__file__), SCRIPT_EXE_PATH]):
             report_fail('Failed to copy `apt-vim` to `PATH`\n' +
                         'Please ensure that `apt-vim` is in your PATH',
                         confirm_continue=False,
@@ -653,7 +659,11 @@ class aptvim(object):
         print('Completed setup successfully')
 
     def verify_bin_in_path(self):
-        if '.vimpkg/bin' not in os.environ['PATH']:
+        if os.name == 'nt':
+            test = BIN_DIR
+        else:
+            test = '.vimpkg/bin'
+        if test not in os.environ['PATH']:
             msg = 'FAILED!\n' + os.path.abspath(BIN_DIR) + ' not found in PATH' + \
                 '\n\nPlease ensure that ' + os.path.abspath(BIN_DIR) + \
                 ' is in your PATH'
@@ -884,7 +894,10 @@ if __name__ != '__main__':
     # This is kinda hacky, but only gets called by install.sh
     def stdin_prompt(msg):
         sys.stdout.write(msg)
-        sys.stdin = open('/dev/tty')
+        if os.name == 'nt':
+            sys.stdin = open('conIN$')
+        else:
+            sys.stdin = open('/dev/tty')
         return sys.stdin.readline()
     input = stdin_prompt
 
