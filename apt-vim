@@ -34,6 +34,8 @@ HOST_OS = platform.system().lower()
 CWD = os.getcwd()
 PKG_IDENTIFIER = '@vimpkg'
 
+print('HOST_OS:', HOST_OS)
+print('-------------------')
 
 def sigint_handler(signal, frame):
     sys.exit(1)
