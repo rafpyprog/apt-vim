@@ -1,5 +1,3 @@
-@echo off
-
 SET start_dir=%CD%
 
 
@@ -41,6 +39,7 @@ echo import imp >> install.py
 echo import os >> install.py
 echo import platform >> install.py
 echo HOST_OS = platform.system().lower() >> install.py
+echo print(HOST_OS) >> install.py
 echo HOME = os.path.expanduser("~") >> install.py
 echo APT_VIM_DIR = os.path.abspath(os.path.join(HOME, 'apt-vim')) >> install.py
 echo SCRIPT_ROOT_DIR = os.path.abspath(os.path.join(HOME, '.vimpkg')) >> install.py
