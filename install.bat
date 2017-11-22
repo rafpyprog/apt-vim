@@ -34,8 +34,8 @@ REM Execute apt-vim init
 cd /D %HOME%apt-vim
 
 REM retirar esse path do meu local de desenvolvimento
-copy D:\mono-repo\apt-vim\apt-vim %HOME%apt-vim\apt-vim
-copy D:\mono-repo\apt-vim\vim_config.json %HOME%apt-vim\vim_config.json
+REM copy D:\mono-repo\apt-vim\apt-vim %HOME%apt-vim\apt-vim
+REM copy D:\mono-repo\apt-vim\vim_config.json %HOME%apt-vim\vim_config.json
 
 echo import imp >> install.py
 echo import os >> install.py
