@@ -39,6 +39,7 @@ REM copy D:\mono-repo\apt-vim\vim_config.json %HOME%apt-vim\vim_config.json
 
 echo import imp >> install.py
 echo import os >> install.py
+echo import platform >> install.py
 echo HOST_OS = platform.system().lower() >> install.py
 echo HOME = os.path.expanduser("~") >> install.py
 echo APT_VIM_DIR = os.path.abspath(os.path.join(HOME, 'apt-vim')) >> install.py
