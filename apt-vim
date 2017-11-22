@@ -534,8 +534,8 @@ class aptvim(object):
         print(command)
         try:
             with open(os.devnull, 'wb') as devnull:
-                #exit_code = call(command, stdout=devnull)
-                exit_code = os.system('copy C:\\Users\\05966258635\\apt-vim\\apt-vim C:\\Users\\05966258635\\.vimpkg\\bin\\apt-vim')
+                exit_code = call(command, stdout=devnull)
+                #exit_code = os.system('copy C:\\Users\\05966258635\\apt-vim\\apt-vim C:\\Users\\05966258635\\.vimpkg\\bin\\apt-vim')
                 if exit_code:
                     return False
         except CalledProcessError:
@@ -625,10 +625,10 @@ class aptvim(object):
             os.makedirs(SRC_DIR)
         print(SCRIPT_EXE_PATH)
         if os.name == 'nt':
-            cmd = 'copy'
+            cmd = ['copy', os.path.realpath(__file__), SCRIPT_EXE_PATH]
         else:
-            cmd = 'cp'
-        if not self.call_silent([cmd, os.path.realpath(__file__), SCRIPT_EXE_PATH]):
+            cmd = ['cp', os.path.realpath(__file__), SCRIPT_EXE_PATH]
+        if not self.call_silent(cmd):
             report_fail('Failed to copy `apt-vim` to `PATH`\n' +
                         'Please ensure that `apt-vim` is in your PATH',
                         confirm_continue=False,
