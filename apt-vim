@@ -557,8 +557,10 @@ class aptvim(object):
                 if 'cd' in com:
                     os.chdir(shlex.split(com)[1])
                 else:
-                    print(com)
-                    call(shlex.split(com))
+                    print('comando', com)
+                    is_posix = os.name! == 'nt'
+                    print(is_posix)
+                    call(shlex.split(com, , posix=is_posix))
             except:
                 user_response = report_fail(
                     'Command `' + com + '` failed.', ASSUME_YES=self.ASSUME_YES)
