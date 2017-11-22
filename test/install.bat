@@ -31,10 +31,6 @@ SET bin_string=%HOME%.vimpkg/bin
 REM Execute apt-vim init
 cd /D %HOME%apt-vim
 
-REM retirar esse path do meu local de desenvolvimento
-REM copy D:\mono-repo\apt-vim\apt-vim %HOME%apt-vim\apt-vim
-REM copy D:\mono-repo\apt-vim\vim_config.json %HOME%apt-vim\vim_config.json
-
 echo import imp >> install.py
 echo import os >> install.py
 echo import platform >> install.py
@@ -51,10 +47,3 @@ echo av.first_run() >> install.py
 echo av.handle_install(None, None, None) >> install.py
 
 python install.py
-
-
-
-
-REM av = aptvim.aptvim(ASSUME_YES=True, VIM_CONFIG='', INSTALL_TARGET='')^
-REM av.first_run()^
-REM av.handle_install(None, None, None)
