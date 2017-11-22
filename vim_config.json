@@ -4,6 +4,7 @@
             {
                 "name": "vim",
                 "recipe": {
+                    "windows": [],
                     "darwin": [],
                     "linux": [
                         "sudo apt-get install -y vim"

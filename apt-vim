@@ -187,6 +187,7 @@ class aptvim(object):
     def get_install_target(self):
         path = self.VIM_CONFIG[GBL][TRG_DIR]
         path = path.replace('~', HOME)
+        print(f'Install target: {path}')
         return path
 
     def get_global_requirements(self):
