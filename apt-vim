@@ -899,6 +899,7 @@ if __name__ != '__main__':
         if os.name == 'nt':
             sys.stdin = open('conIN$')
         else:
+            print(os.name)
             sys.stdin = open('/dev/tty')
         return sys.stdin.readline()
     input = stdin_prompt
