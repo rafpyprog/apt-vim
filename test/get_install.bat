@@ -1,7 +1,3 @@
-cd .. & git add .
-git commit -m "test"
-git push
-
 @echo '---------------------------------------------'
 @echo ' Clean installation'
 @echo '---------------------------------------------'
