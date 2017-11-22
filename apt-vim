@@ -558,7 +558,7 @@ class aptvim(object):
                     os.chdir(shlex.split(com)[1])
                 else:
                     print('comando', com)
-                    is_posix = os.name! == 'nt'
+                    is_posix = os.name != 'nt'
                     print(is_posix)
                     call(shlex.split(com, , posix=is_posix))
             except:
