@@ -42,6 +42,8 @@
             "name": "pathogen",
             "pkg-url": "https://github.com/tpope/vim-pathogen.git",
             "recipe": {
+                "nt": ["mkdir %HOME%.vim/autoload"
+                ],
                 "all": [
                     "mkdir -p ~/.vim/autoload",
                     "curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim"

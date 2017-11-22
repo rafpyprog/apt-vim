@@ -6,8 +6,8 @@ SET start_dir=%CD%
 REM Download the apt-vim files
 SET APT_VIM_DIR=%HOME%apt-vim
 mkdir %APT_VIM_DIR%
-powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/rafpyprog/apt-vim/master/apt-vim -OutFile %APT_VIM_DIR%\apt-vim"
-powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/rafpyprog/apt-vim/master/vim_config.json -OutFile %APT_VIM_DIR%\vim_config.json"
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/egalpin/apt-vim/master/apt-vim -OutFile %APT_VIM_DIR%\apt-vim"
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/egalpin/apt-vim/master/vim_config.json -OutFile %APT_VIM_DIR%\vim_config.json"
 
 
 REM Add vimrc if there isn't one already
