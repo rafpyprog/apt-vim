@@ -560,7 +560,7 @@ class aptvim(object):
                     print('comando', com)
                     is_posix = os.name != 'nt'
                     print(is_posix)
-                    call(shlex.split(com, , posix=is_posix))
+                    call(shlex.split(com, posix=is_posix))
             except:
                 user_response = report_fail(
                     'Command `' + com + '` failed.', ASSUME_YES=self.ASSUME_YES)
