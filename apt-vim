@@ -34,9 +34,6 @@ HOST_OS = platform.system().lower()
 CWD = os.getcwd()
 PKG_IDENTIFIER = '@vimpkg'
 
-print('HOST_OS:', HOST_OS)
-print('-------------------')
-
 def sigint_handler(signal, frame):
     sys.exit(1)
 
@@ -628,7 +625,7 @@ class aptvim(object):
             os.makedirs(SRC_DIR)
         print(SCRIPT_EXE_PATH)
         print(HOST_OS)
-        if HOST_OS == 'windows':
+        if platform.system().lower() == 'windows':
             cmd = ['copy', os.path.realpath(__file__), SCRIPT_EXE_PATH]
         else:
             cmd = ['cp', os.path.realpath(__file__), SCRIPT_EXE_PATH]
