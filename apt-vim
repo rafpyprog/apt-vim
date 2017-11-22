@@ -535,7 +535,7 @@ class aptvim(object):
         try:
             with open(os.devnull, 'wb') as devnull:
                 if HOST_OS == 'windows':
-                    exit_code = call(command, stdout=devnull, shell=True)
+                    exit_code = call(command.encode('string-escape'), stdout=devnull, shell=True)
                 else:
                     exit_code = call(command, stdout=devnull)
                 if exit_code:
