@@ -1,5 +1,7 @@
+set COMMIT_MSG = %1
+
 git add .
-git commit -m "test"
+git commit -m "%COMMIT_MSG"
 git push
 
 @echo off
