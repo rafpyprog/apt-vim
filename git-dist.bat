@@ -1,3 +1,4 @@
+@echo off
 call :isAdmin
 
     if %errorlevel% == 0 (
