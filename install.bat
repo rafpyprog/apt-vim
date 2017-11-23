@@ -50,7 +50,7 @@ cd /D %HOME%apt-vim
 python install.py
 
 :: Add vimpkg to path
-set path | find "C:\Users\05966258635\.vimpkg\bin"
+echo %PATH% | find %bin_string%
 IF %ERRORLEVEL% NEQ 0 (
     echo "Adding %bin_string% to PATH."
     setx %PATH% %bin_string%
