@@ -515,10 +515,10 @@ class aptvim(object):
             return True
         for req in requirements:
             if HOST_OS == 'windows':
-                which = 'where'
+                cmd = ' '.join('where', req)
             else:
-                which = 'which'
-            if not self.call_silent([which, req]):
+                cmd = [which, req]
+            if not self.call_silent(cmd):
                 return False
         return True
 
