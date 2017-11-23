@@ -8,6 +8,7 @@ set VIM=C:\Users\05966258635\.vim
 set VIMPKG=C:\Users\05966258635\.vimpkg
 set APTVIM=C:\Users\05966258635\apt-vim
 
+@echo off
 if exist %VIMRC% del %VIMRC%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
 if exist %VIM% rmdir /S /Q %VIM%
