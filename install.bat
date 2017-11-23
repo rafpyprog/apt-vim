@@ -51,4 +51,4 @@ python install.py
 
 
 :: Add vimpkg to path
-setx /M path "%PATH%;%bin_string%"
+setx /M path "%PATH%;C:\TESTEOK"
