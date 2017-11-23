@@ -530,13 +530,10 @@ class aptvim(object):
         match = regex.search(url)
         return True if match else False
 
-    def call_silent(self, command):
-        print(command)
+    def call_silent(self, command):        
         try:
             with open(os.devnull, 'wb') as devnull:
                 if HOST_OS == 'windows':
-                    command = command.replace(r'\\', r'\\\\')
-                    print(command)
                     exit_code = call(command, stdout=devnull, shell=True)
                 else:
                     exit_code = call(command, stdout=devnull)
