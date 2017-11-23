@@ -1,21 +1,32 @@
-@echo off
-call :isAdmin
+:: BatchGotAdmin
+::-------------------------------------
+REM  --> Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
-    if %errorlevel% == 0 (
-       echo 'Administrative status ok'
-       rem goto :run
-    ) else (
-       echo Requesting administrative privileges...
-       rem goto :UACPrompt
-    )
+REM --> If error flag set, we do not have admin.
+if '%errorlevel%' NEQ '0' (
+    echo Requesting administrative privileges...
+    goto UACPrompt
+) else ( goto gotAdmin )
 
-set COMMIT_MSG=%1
+:UACPrompt
+    echo Set UAC=CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    set params=%*:"="
+    set params=%*
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B
+
+:gotAdmin
+    pushd "%CD%"
+    CD /D "%~dp0"
+::------------------------------------------------------------------------
 git add .
-git commit -m "%COMMIT_MSG%"
+git commit -m "%1"
 git push
 
-@echo off
 set VIMRC=C:\Users\05966258635\.vimrc
 set APTVIM=C:\Users\05966258635\.apt-vim
 set VIM=C:\Users\05966258635\.vim
@@ -27,12 +38,3 @@ if exist %APTVIM% rmdir /S /Q %APTVIM%
 if exist %VIM% rmdir /S /Q %VIM%
 if exist %VIMPKG% rmdir /S /Q %VIMPKG%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
-
-@echo on
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    echo UAC.ShellExecute "cmd.exe", "/c payload %~sdp0 %*", "", "runas", 1 >> "%vbs%"
-
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B`
