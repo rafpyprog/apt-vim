@@ -31,7 +31,7 @@ if exist %APTVIM% rmdir /S /Q %APTVIM%
 @echo on
 :UACPrompt
     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %~1", "", "runas", 1 >> "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "%~s0", "payload %~sdp0 %*", "", "runas", 1 >> "%vbs%"
 
     "%temp%\getadmin.vbs"
     del "%temp%\getadmin.vbs"
