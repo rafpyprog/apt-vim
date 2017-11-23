@@ -25,6 +25,9 @@ IF %ERRORLEVEL% NEQ 0 (
 :: Update path for executing shell
 SET bin_string=%HOME%.vimpkg/bin
 
+:: Add vimpkg to path
+setx Path "C:\TESTESCRIPT;%PATH%"
+
 :: Execute apt-vim init
 cd /D %HOME%apt-vim
 
@@ -48,7 +51,3 @@ cd /D %HOME%apt-vim
 
 :: Run the installation script
 python install.py
-
-
-:: Add vimpkg to path
-setx /M path "%PATH%;C:\TESTEOK"

@@ -26,7 +26,7 @@ IF %ERRORLEVEL% NEQ 0 (
 SET bin_string=%HOME%.vimpkg/bin
 
 :: Add vimpkg to path
-setx Path "C:\TESTESCRIPT;%PATH%"
+setx Path "%bin_string%;%PATH%"
 
 :: Execute apt-vim init
 cd /D %HOME%apt-vim
