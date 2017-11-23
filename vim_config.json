@@ -43,7 +43,7 @@
             "name": "pathogen",
             "pkg-url": "https://github.com/tpope/vim-pathogen.git",
             "recipe": {
-                "windows": ["mkdir ~.vim\\autoload",
+                "windows": ["mkdir %HOME%.vim\\autoload",
                             "powershell -Command \"Invoke-WebRequest https://tpo.pe/pathogen.vim -OutFile %HOME%.vim\\autoload\\pathogen.vim\""
                 ],
                 "linux": [
