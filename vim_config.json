@@ -57,8 +57,9 @@
                 {
                     "name": "ctags",
                     "recipe": {
-                        "windows": ["powershell -Command \"Invoke-WebRequest http://sourceforge.net/projects/ctags/files/ctags/5.8/ctags58.zip/download?use_mirror=iweb\"  -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::FireFox -OutFile ctags58.zip",
-                                    "powershell -Command \"Expand-Archive ctags58.zip\""
+                        "windows": [
+                            "powershell -Command \"Invoke-WebRequest http://sourceforge.net/projects/ctags/files/ctags/5.8/ctags58.zip/download?use_mirror=iweb\"  -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::FireFox -OutFile ctags58.zip",
+                            "powershell -Command \"Expand-Archive ctags58.zip\""
                         ],
                         "darwin": [
                             "curl -LSso ctags-5.8.tar.gz 'http://sourceforge.net/projects/ctags/files/ctags/5.8/ctags-5.8.tar.gz/download?use_mirror=iweb'",
