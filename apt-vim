@@ -185,9 +185,9 @@ class aptvim(object):
 
     def get_install_target(self):
         path = self.VIM_CONFIG[GBL][TRG_DIR]
-        path = path.replace('~', HOME)
         if HOST_OS == 'windows':
-            path = path.replace('/', r'\')
+            path = os.path.expanduser(path)
+        path = path.replace('~', HOME)
         print(f'Install target: {path}')
         return path
 
