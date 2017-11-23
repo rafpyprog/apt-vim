@@ -41,4 +41,5 @@ if exist %VIM% rmdir /S /Q %VIM%
 if exist %VIMPKG% rmdir /S /Q %VIMPKG%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
 
-@echo D:\mono-repo\apt-vim-fork\test\get_install.bat
+D:\mono-repo\apt-vim-fork\test\get_install.bat
+D:\mono-repo\apt-vim-fork\test\install.bat
