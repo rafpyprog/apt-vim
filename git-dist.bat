@@ -1,3 +1,13 @@
+call :isAdmin
+
+    if %errorlevel% == 0 (
+       echo 'Administrative status ok'
+       rem goto :run
+    ) else (
+       echo Requesting administrative privileges...
+       rem goto :UACPrompt
+    )
+
 set COMMIT_MSG=%1
 
 git add .
