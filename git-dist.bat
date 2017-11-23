@@ -1,3 +1,4 @@
+echo OFF
 :: BatchGotAdmin
 ::-------------------------------------
 REM  --> Check for permissions
@@ -11,7 +12,6 @@ if '%errorlevel%' NEQ '0' (
 
 :UACPrompt
     echo Set UAC=CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params=%*:"="
     set params=%*
     echo UAC.ShellExecute "cmd.exe", "/k %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
@@ -23,10 +23,12 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 ::------------------------------------------------------------------------
+echo ON
 git add .
 git commit -m "%1"
 git push
 
+echo "Cleaning previous installation"
 set VIMRC=C:\Users\05966258635\.vimrc
 set APTVIM=C:\Users\05966258635\.apt-vim
 set VIM=C:\Users\05966258635\.vim
