@@ -14,6 +14,7 @@
             {
                 "name": "git",
                 "recipe": {
+                    "windows": [],
                     "darwin": [],
                     "linux": [
                         "sudo apt-get install -y git"
@@ -23,6 +24,7 @@
             {
                 "name": "brew",
                 "recipe": {
+                    "windows": [],
                     "linux": [],
                     "darwin": [
                         "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
