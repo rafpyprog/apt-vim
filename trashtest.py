@@ -13,3 +13,5 @@ call(, shell=True)
 cmd = '''powershell.exe -Command "Invoke-WebRequest https://tpo.pe/pathogen.vim -OutFile myvim"'''
 proc = Popen(cmd, stdout=PIPE, stdin=PIPE, shell=True)
 proc.communicate()
+
+exit_code = call(['where, fakenews'], shell=True, stdout=PIPE)
