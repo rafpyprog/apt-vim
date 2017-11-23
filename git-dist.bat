@@ -42,5 +42,5 @@ if exist %VIMPKG% rmdir /S /Q %VIMPKG%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
 
 echo Instalando teste
-set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.bat -OutFile install.bat
-powershell -command "Invoke-WebRequest -DisableKeepAlive %install_script% -OutFile D:\mono-repo\apt-vim-fork\test\install.bat"
+set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.bat -OutFile D:\mono-repo\apt-vim-fork\test\install.bat
+powershell -command "Invoke-WebRequest -DisableKeepAlive %install_script%"
