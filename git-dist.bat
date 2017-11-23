@@ -27,3 +27,12 @@ if exist %APTVIM% rmdir /S /Q %APTVIM%
 if exist %VIM% rmdir /S /Q %VIM%
 if exist %VIMPKG% rmdir /S /Q %VIMPKG%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
+
+@echo on
+:UACPrompt
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %~1", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B`
