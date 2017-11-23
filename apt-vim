@@ -558,8 +558,7 @@ class aptvim(object):
                     os.chdir(shlex.split(com)[1])
                 else:
                     print('Comando:', com)
-                    if HOST_OS == 'windows':
-                        com = com
+                    if HOST_OS == 'windows':                        
                         call(com, shell=True)
                     else:
                         call(shlex.split(com))
