@@ -1,3 +1,4 @@
+cls
 SET start_dir=%CD%
 
 

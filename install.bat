@@ -32,6 +32,7 @@ SET bin_string=%HOME%.vimpkg/bin
 REM Execute apt-vim init
 cd /D %HOME%apt-vim
 
+@echo off
 echo import imp >> install.py
 echo import os >> install.py
 echo import platform >> install.py
@@ -46,5 +47,5 @@ echo aptvim = imp.load_source("aptvim", "./apt-vim") >> install.py
 echo av = aptvim.aptvim(ASSUME_YES=True, VIM_CONFIG='', INSTALL_TARGET='') >> install.py
 echo av.first_run() >> install.py
 echo av.handle_install(None, None, None) >> install.py
-
+@echo on
 python install.py
