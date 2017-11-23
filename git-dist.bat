@@ -1,4 +1,4 @@
-echo OFF
+@echo off
 :: BatchGotAdmin
 ::-------------------------------------
 REM  --> Check for permissions
@@ -23,7 +23,7 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 ::------------------------------------------------------------------------
-echo ON
+@echo ON
 git add .
 git commit -m "%1"
 git push
