@@ -530,7 +530,7 @@ class aptvim(object):
         match = regex.search(url)
         return True if match else False
 
-    def call_silent(self, command):        
+    def call_silent(self, command):
         try:
             with open(os.devnull, 'wb') as devnull:
                 if HOST_OS == 'windows':
@@ -556,7 +556,7 @@ class aptvim(object):
                 if 'cd' in com:
                     os.chdir(shlex.split(com)[1])
                 else:
-                    print('comando', com)
+                    print('Comando:', com)
                     if HOST_OS == 'windows':
                         call(com, shell=True)
                     else:
