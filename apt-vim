@@ -514,7 +514,11 @@ class aptvim(object):
         if requirements is None:
             return True
         for req in requirements:
-            if not self.call_silent(['which', req]):
+            if HOST_OS == 'windows':
+                which = 'where'
+            else:
+                which = 'which'
+            if not self.call_silent([which, req]):
                 return False
         return True
 
@@ -558,7 +562,7 @@ class aptvim(object):
                     os.chdir(shlex.split(com)[1])
                 else:
                     print('Comando:', com)
-                    if HOST_OS == 'windows':                        
+                    if HOST_OS == 'windows':
                         call(com, shell=True)
                     else:
                         call(shlex.split(com))
