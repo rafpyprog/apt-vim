@@ -40,8 +40,8 @@ git push
 @echo off
 
 if "%HOME%"=="" (
-  echo 'definindo'
   set HOME=%USERPROFILE%
+  @echo HOME=%HOME%
 )
 
 echo "Cleaning previous installation"
