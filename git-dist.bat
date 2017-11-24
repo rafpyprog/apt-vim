@@ -13,7 +13,7 @@ if '%errorlevel%' NEQ '0' (
 :UACPrompt
     echo Set UAC=CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
     set params=%*
-    echo UAC.ShellExecute "cmd.exe", "/k %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
     "%temp%\getadmin.vbs"
     del "%temp%\getadmin.vbs"
@@ -52,3 +52,5 @@ set outfile=D:\mono-repo\apt-vim-fork\test\install.ps1
 set outfile=C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1
 set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.ps1 -OutFile %outfile%
 powershell -command "Invoke-WebRequest -DisableKeepAlive %install_script%"
+
+PAUSE
