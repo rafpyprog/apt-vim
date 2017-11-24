@@ -61,16 +61,24 @@ set VIM=%HOME%\.vim
 set VIMPKG=%HOME%\.vimpkg
 set APTVIM=%HOME%\apt-vim
 
+@echo on
 if exist %VIMRC% del %VIMRC%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
 if exist %VIM% rmdir /S /Q %VIM%
 if exist %VIMPKG% rmdir /S /Q %VIMPKG%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
+@echo off
 
-echo Instalando teste
+@echo on
+@echo. & @echo -------------------------------
+@echo Downloading install script
+@echo ------------------------------- & @echo.
+@echo off
+
 set outfile=D:\mono-repo\apt-vim-fork\test\install.ps1
 set outfile=C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1
 set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.ps1 -OutFile %outfile%
+echo on
 powershell -command "Invoke-WebRequest -DisableKeepAlive %install_script%"
 
 PAUSE
