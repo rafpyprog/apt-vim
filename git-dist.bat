@@ -75,10 +75,15 @@ if exist %APTVIM% rmdir /S /Q %APTVIM%
 @echo ------------------------------- & @echo.
 @echo off
 
-set outfile=D:\mono-repo\apt-vim-fork\test\install.ps1
-set outfile=C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1
+if exist D:\mono-repo\apt-vim-fork\test\install.ps1 set outfile=D:\mono-repo\apt-vim-fork\test\install.ps1
+if exist C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1 set outfile=C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1
+@echo %outfile%
+::set outfile=D:\mono-repo\apt-vim-fork\test\install.ps1
+::set outfile=C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1
 set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.ps1 -OutFile %outfile%
+
 echo on
 powershell -command "Invoke-WebRequest -DisableKeepAlive %install_script%"
 
+echo off
 PAUSE
