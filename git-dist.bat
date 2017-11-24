@@ -23,7 +23,9 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 ::------------------------------------------------------------------------
-@echo ON
+@echo on
+@echo Updating repository.
+@echo off
 git add .
 git commit -m "%1"
 git push
