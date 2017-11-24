@@ -2,16 +2,25 @@ $start_dir = Split-Path $MyInvocation.MyCommand.Path
 
 clear
 
+# Clean previous installation
+Remove-Item -Force -Path ~\.vim -recurse
+Remove-Item -Force -Path ~\.vimpkg -recurse
+Remove-Item -Force -Path ~\.vimrc
+Remove-Item -Force -Path ~\apt-vim -recurse
+
+
 # Create apt-vim folder
 $apt_vim_dir="$HOME\apt-vim"
 Write-Host $apt_vim_dir
 New-Item -force -ItemType directory -Path $apt_vim_dir
 
 # Download apt-vim files
-$apt_vim_url = "https://raw.githubusercontent.com/rafpyprog/apt-vim/master/apt-vim"
-$vimjson_url = "https://raw.githubusercontent.com/rafpyprog/apt-vim/master/vim_config.json"
-Invoke-WebRequest $apt_vim_url -OutFile $apt_vim_dir'\apt-vim'
-Invoke-WebRequest $vimjson_url -OutFile $apt_vim_dir'\vim_config.json'
+#$apt_vim_url = "https://raw.githubusercontent.com/rafpyprog/apt-vim/master/apt-vim"
+#$vimjson_url = "https://raw.githubusercontent.com/rafpyprog/apt-vim/master/vim_config.json"
+#Invoke-WebRequest $apt_vim_url -OutFile $apt_vim_dir'\apt-vim'
+#Invoke-WebRequest $vimjson_url -OutFile $apt_vim_dir'\vim_config.json'
+Copy-Item -Force '..\apt-vim' $apt_vim_dir'\apt-vim'
+Copy-Item -Force '..\vim_config.json' $apt_vim_dir'\vim_config.json'
 
 # Add vimrc if there isn't one already
 $vimrc = "$HOME\.vimrc"

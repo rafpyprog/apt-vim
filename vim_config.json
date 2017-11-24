@@ -45,7 +45,7 @@
             "name": "pathogen",
             "pkg-url": "https://github.com/tpope/vim-pathogen.git",
             "recipe": {
-                "windows": ["mkdir ~.vim\\autoload",
+                "windows": ["mkdir ~\\.vim\\autoload",
                             "powershell -Command \"Invoke-WebRequest https://tpo.pe/pathogen.vim -OutFile ~.vim\\autoload\\pathogen.vim\""
                 ],
                 "linux": [
@@ -60,9 +60,8 @@
                     "name": "ctags",
                     "recipe": {
                         "windows": [
-                            "powershell -Command \"Invoke-WebRequest http://sourceforge.net/projects/ctags/files/ctags/5.8/ctags58.zip/download?use_mirror=iweb\"  -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::FireFox -OutFile ctags58.zip",
-                            "powershell -Command \"Expand-Archive cctags58.zip\"",
-                            "powershell -Command \"Add-Type -assembly \"system.io.compression.filesystem\" \"&\" [System.IO.Compression.ZipFile]::ExtractToDirectory(\"ctags58.zip\", .)\""
+                            "powershell -Command \"Invoke-WebRequest http://sourceforge.net/projects/ctags/files/ctags/5.8/ctags58.zip/download?use_mirror=iweb\" -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::FireFox -OutFile ctags58.zip",
+                            "powershell -Command \"Add-Type -AssemblyName System.IO.Compression.FileSystem; $zipfile=$pwd.Path; echo $zipfile;[io.compression.zipfile]::ExtractToDirectory('.\\ctags58.zip', $pwd.Path)\""
                         ],
                         "darwin": [
                             "curl -LSso ctags-5.8.tar.gz 'http://sourceforge.net/projects/ctags/files/ctags/5.8/ctags-5.8.tar.gz/download?use_mirror=iweb'",
