@@ -543,8 +543,8 @@ class aptvim(object):
     def call_silent(self, command):
         try:
             with open(os.devnull, 'wb') as devnull:
-                if HOST_OS == 'windows':                    
-                    cmd = os.path.expanduser(cmd)
+                if HOST_OS == 'windows':
+                    command = os.path.expanduser(command)
                     exit_code = call(command, stdout=devnull, shell=True)
                 else:
                     exit_code = call(command, stdout=devnull)
