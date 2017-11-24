@@ -24,7 +24,9 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 ::------------------------------------------------------------------------
 @echo on
-@echo Updating repository.
+@echo -----------------------------
+@echo Updating GitHub repository.
+@echo -----------------------------
 @echo off
 git add .
 git commit -m "%1"
