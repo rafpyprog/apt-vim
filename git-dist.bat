@@ -28,12 +28,18 @@ git add .
 git commit -m "%1"
 git push
 
+:: Windows 7 dont use HOME variable
+if "%HOME%"=="" (
+  echo 'definindo'
+  set HOME=%USERPROFILE%
+)
+
 echo "Cleaning previous installation"
-set VIMRC=C:\Users\05966258635\.vimrc
-set APTVIM=C:\Users\05966258635\.apt-vim
-set VIM=C:\Users\05966258635\.vim
-set VIMPKG=C:\Users\05966258635\.vimpkg
-set APTVIM=C:\Users\05966258635\apt-vim
+set VIMRC=%HOME%\.vimrc
+set APTVIM=%HOME%\.apt-vim
+set VIM=%HOME%\.vim
+set VIMPKG=%HOME%\.vimpkg
+set APTVIM=%HOME%\apt-vim
 
 if exist %VIMRC% del %VIMRC%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
