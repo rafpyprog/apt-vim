@@ -27,6 +27,7 @@ if '%errorlevel%' NEQ '0' (
 @echo -----------------------------
 @echo Updating GitHub repository.
 @echo -----------------------------
+@echo.
 @echo off
 git add .
 git commit -m "%1"
@@ -34,6 +35,7 @@ git push
 
 :: Windows 7 dont use HOME variable
 @echo on
+@echo.
 @echo -----------------------------
 @echo Setting %%HOME%% variable.
 @echo -----------------------------
