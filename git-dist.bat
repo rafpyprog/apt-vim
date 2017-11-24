@@ -41,7 +41,7 @@ git push
 
 if "%HOME%"=="" (
   set HOME=%USERPROFILE%
-  @echo HOME=%HOME%
+  @echo HOME="%HOME%"
 )
 
 echo "Cleaning previous installation"
