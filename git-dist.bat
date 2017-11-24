@@ -33,6 +33,12 @@ git commit -m "%1"
 git push
 
 :: Windows 7 dont use HOME variable
+@echo on
+@echo -----------------------------
+@echo Setting %%HOME%% variable.
+@echo -----------------------------
+@echo off
+
 if "%HOME%"=="" (
   echo 'definindo'
   set HOME=%USERPROFILE%
