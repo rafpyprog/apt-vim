@@ -24,9 +24,9 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 ::------------------------------------------------------------------------
 @echo on
-@echo -----------------------------
+@echo -------------------------------
 @echo Updating GitHub repository.
-@echo -----------------------------
+@echo -------------------------------
 @echo.
 @echo off
 git add .
@@ -36,9 +36,9 @@ git push
 :: Windows 7 dont use HOME variable
 @echo on
 @echo.
-@echo -----------------------------
+@echo -------------------------------
 @echo Setting %%HOME%% variable.
-@echo -----------------------------
+@echo -------------------------------
 @echo.
 @echo off
 
@@ -47,8 +47,14 @@ if "%HOME%"=="" (
 )
 @echo on
 @echo HOME="%HOME%"
+@echo off
 
-echo "Cleaning previous installation"
+@echo on
+@echo. & @echo -------------------------------
+@echo Cleaning previous installation
+@echo ------------------------------- & @echo.
+@echo off
+
 set VIMRC=%HOME%\.vimrc
 set APTVIM=%HOME%\.apt-vim
 set VIM=%HOME%\.vim
