@@ -24,7 +24,6 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 ::------------------------------------------------------------------------
 @echo ON
-echo PARAM1 %1
 git add .
 git commit -m "%1"
 git push
@@ -43,7 +42,7 @@ if exist %VIMPKG% rmdir /S /Q %VIMPKG%
 if exist %APTVIM% rmdir /S /Q %APTVIM%
 
 echo Instalando teste
-set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.ps1 -OutFile D:\mono-repo\apt-vim-fork\test\install.ps1
+set outfile=D:\mono-repo\apt-vim-fork\test\install.ps1
+set outfile=C:\Users\rafael\Projetos\Python\apt-vim\test\install.ps1
+set install_script=https://raw.githubusercontent.com/rafpyprog/apt-vim/master/install.ps1 -OutFile %outfile%
 powershell -command "Invoke-WebRequest -DisableKeepAlive %install_script%"
-
-D:\mono-repo\apt-vim-fork\test\install.ps1
