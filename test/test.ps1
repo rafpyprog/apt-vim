@@ -26,7 +26,7 @@ Copy-Item -Force '..\vim_config.json' $apt_vim_dir'\vim_config.json'
 $vimrc = "$HOME\.vimrc"
 $vimrc_not_exists = -Not (Test-Path $vimrc)
 If ($vimrc_not_exists){
-    New-Item -ItemType file -Path $vimrc -value "execute pathogen#infect()`ncall pathogen#helptags()"
+    New-Item -ItemType file -Path $vimrc -value "execute pathogen#infect()`ncall pathogen#helptags()`n"
 }
 else {
     Write-Host .vimrc file already exists [$vimrc].

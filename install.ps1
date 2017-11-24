@@ -16,8 +16,8 @@ Invoke-WebRequest $vimjson_url -OutFile $apt_vim_dir'\vim_config.json'
 # Add vimrc if there isn't one already
 $vimrc = "$HOME\.vimrc"
 $vimrc_not_exists = -Not (Test-Path $vimrc)
-If ($vimrc_not_exists){
-    New-Item -ItemType file -Path $vimrc -value "execute pathogen#infect()`ncall pathogen#helptags()`n "
+If ($vimrc_not_exists){    
+    New-Item -ItemType file -Path $vimrc -value "execute pathogen#infect()`ncall pathogen#helptags()`n"
 }
 else {
     Write-Host .vimrc file already exists [$vimrc].
@@ -28,6 +28,7 @@ else {
     }
     If (-Not ($vimrc_content -contains "call pathogen#helptags()")){
             Add-Content $vimrc "call pathogen#helptags()"
+            Add-Content $vimrc "#"
     }
 }
 

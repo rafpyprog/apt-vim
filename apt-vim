@@ -192,7 +192,6 @@ class aptvim(object):
             print('Install target:', path)
         else:
             path = path.replace('~', HOME)
-        print(f'Install target: {path}')
         return path
 
     def get_global_requirements(self):
@@ -633,8 +632,7 @@ class aptvim(object):
             dest_path = BUNDLE_PATH + '.bak'
             shutil.move(BUNDLE_PATH, dest_path)
         if not os.path.exists(self.INSTALL_TARGET):
-            os.makedirs(self.INSTALL_TARGET)
-        print('Cria symlink', self.INSTALL_TARGET)
+            os.makedirs(self.INSTALL_TARGET)        
         os.symlink(self.INSTALL_TARGET, BUNDLE_PATH)
         if not os.path.exists(BIN_DIR):
             os.makedirs(BIN_DIR)
