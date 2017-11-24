@@ -36,7 +36,8 @@ git push
 @echo on
 @echo -----------------------------
 @echo Setting %%HOME%% variable.
-@echo -----------------------------'\n'
+@echo -----------------------------
+@echo.
 @echo off
 
 if "%HOME%"=="" (
