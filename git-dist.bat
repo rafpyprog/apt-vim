@@ -41,8 +41,9 @@ git push
 
 if "%HOME%"=="" (
   set HOME=%USERPROFILE%
-  @echo HOME="%HOME%"
 )
+@echo on
+@echo HOME="%HOME%"
 
 echo "Cleaning previous installation"
 set VIMRC=%HOME%\.vimrc
